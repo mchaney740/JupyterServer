@@ -15,7 +15,11 @@ Create a container and specify the host path of your samba share or folder where
 ```bash
 podman run -itd --name JupyterLabs -p 8888:8888 --volume /path/to/samba/share:/mnt/Jupyter/Projects jupyterlab
 ```
-Now run the Run_Jupyter.sh to start the Jupyter Server. Navigate to localhost:8888 and use the password you set in config.py
+Now enter the container
+```bash
+podman exec -it JupyterLabs /bin/bash
+```
+Finally. run the Run_Jupyter.sh to start the Jupyter Server. Navigate to localhost:8888 and use the password you set in config.py
 ```bash
 ./Run_Jupyter.sh
 ```
