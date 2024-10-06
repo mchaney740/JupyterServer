@@ -11,9 +11,9 @@ Build the image. The "." is used if your are in the same directory as the Docker
 ```bash
 podman build -t jupyterlab:latest .
 ```
-Create a container and specify the host path of your samba share or folder where you will drop your project files into.
+Create a container and specify the host path of your samba share or folder where you will drop your project files into. (Note: the --restart=always option only works in docker or in podman if you are running as root/systemd)
 ```bash
-podman run -itd --name JupyterLabs -p 8888:8888 --volume /path/to/samba/share:/mnt/Jupyter/Projects jupyterlab
+podman run -itd --name JupyterLabs -p 8888:8888 --volume /path/to/samba/share:/mnt/Jupyter/Projects --restart=always jupyterlab
 ```
 Now enter the container
 ```bash
